@@ -1,13 +1,25 @@
-import gulp from 'gulp';
-import clean from './gulp/tasks/clean';
-import config from './gulp/config';
+import { series, parallel } from "gulp";
+import clean from "./config/clean";
+import server from "./config/server";
+import { scriptsBuild, scriptsWatch } from "./config/scripts";
+import { pugBuild, pugWatch } from "./config/pug";
+import styles from "./config/styles";
 
-config.setEnv();
-
-export const build = gulp.series(
+export const build = series(
   clean,
+  parallel(
+    scriptsBuild,
+    pugBuild
+    // stylesBuild,
+  )
 );
 
-export const watch = gulp.series(
+export const dev = series(
   build,
+  server,
+  parallel(
+    scriptsWatch,
+    pugWatch
+    // stylesWatch,
+  )
 );
