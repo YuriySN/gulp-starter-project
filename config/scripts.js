@@ -8,13 +8,14 @@ import uglify from "gulp-uglify";
 import config from "./gulp.config";
 // import config, { isDev, isProd } from "./gulp.config";
 
-console.log(config.build.dev);
-console.log(config.build.prod);
-
 export const scriptsBuild = () =>
   browserify(`${config.src.js}/index.js`, { debug: true })
     .transform("babelify", { presets: ["@babel/preset-env"] })
     .bundle()
+    .on("error", function browserifyError(error) {
+      console.log(error.stack);
+      this.emit("end");
+    })
     .pipe(source("main.js"))
     .pipe(buffer())
     .pipe(gulpif(config.isDev, sourcemaps.init({ loadMaps: true })))

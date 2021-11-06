@@ -27,11 +27,7 @@ export const pugBuild = () =>
         )
       )
     )
-    .pipe(
-      pug({
-        pretty: true,
-      })
-    )
+    .pipe(gulpif(config.build.dev, pug({ pretty: true }), pug()))
     .pipe(dest(config.dest.html));
 
 export const pugWatch = () => {

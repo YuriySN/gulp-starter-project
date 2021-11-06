@@ -5,7 +5,7 @@ const output = "build";
 // export const isProd = !isDev;
 
 const isDev = process.env.NODE_ENV === "development";
-const isProd = !isDev
+const isProd = !isDev;
 
 const config = {
   src: {
@@ -21,9 +21,9 @@ const config = {
     root: output,
     js: `${output}/js`,
     html: `${output}/layout`,
-    css: `${output}/css`,
-    fonts: `${output}/fonts`,
-    images: `${output}/images`,
+    // css: `${output}/css`,
+    // fonts: `${output}/fonts`,
+    // images: `${output}/images`,
   },
 
   build: {

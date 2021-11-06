@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=development gulp dev",
+    "dev": "cross-env NODE_ENV=development gulp build",
     "build": "cross-env NODE_ENV=prodaction gulp build"
   },
   "devDependencies": {
