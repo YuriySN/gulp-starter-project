@@ -1,7 +1,7 @@
 import browserSync from "browser-sync";
 import config from "./gulp.config";
 
-const server = (callback) => {
+const server = (done) => {
   browserSync.create().init({
     server: {
       baseDir: [config.dest.html, config.dest.root],
@@ -15,7 +15,7 @@ const server = (callback) => {
     notify: false,
   });
 
-  callback();
+  done();
 };
 
 export default server;

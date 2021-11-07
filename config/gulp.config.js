@@ -21,7 +21,7 @@ const config = {
     root: output,
     js: `${output}/js`,
     html: `${output}/layout`,
-    // css: `${output}/css`,
+    css: `${output}/css`,
     // fonts: `${output}/fonts`,
     // images: `${output}/images`,
   },

@@ -3,14 +3,14 @@ import clean from "./config/clean";
 import server from "./config/server";
 import { scriptsBuild, scriptsWatch } from "./config/scripts";
 import { pugBuild, pugWatch } from "./config/pug";
-import styles from "./config/styles";
+import { sassBuild, sassWatch } from "./config/styles";
 
 export const build = series(
   clean,
   parallel(
     scriptsBuild,
-    pugBuild
-    // stylesBuild,
+    pugBuild,
+    sassBuild,
   )
 );
 
@@ -19,7 +19,7 @@ export const dev = series(
   server,
   parallel(
     scriptsWatch,
-    pugWatch
-    // stylesWatch,
+    pugWatch,
+    sassWatch,
   )
 );
