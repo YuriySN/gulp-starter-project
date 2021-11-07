@@ -19,10 +19,14 @@ export const sassBuild = () =>
     .pipe(gulpif(config.build.dev, sourcemaps.init()))
     .pipe(sass())
     .pipe(gcmq())
-    .pipe(postcss([ autoprefixer() ]))
+    .pipe(postcss([autoprefixer()]))
     .pipe(gulpif(config.build.prod, cleanCSS({ level: 2 })))
     .pipe(
-      gulpif(config.build.prod, rename({basename: "main", suffix: ".min",}), rename({basename: "main",}))
+      gulpif(
+        config.build.prod,
+        rename({ basename: "main", suffix: ".min" }),
+        rename({ basename: "main" })
+      )
     )
     .pipe(gulpif(config.build.dev, sourcemaps.write()))
     .pipe(dest(config.dest.css));

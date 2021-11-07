@@ -35,9 +35,15 @@
     "postcss": "^8.3.11",
     "pug-lint": "^2.6.0",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "stylelint": "^14.0.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^23.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.0.0"
   },
   "dependencies": {
     "normalize.css": "^8.0.1"
+
   }
 }

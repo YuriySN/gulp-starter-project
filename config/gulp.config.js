@@ -14,7 +14,7 @@ const config = {
     pug: `${source}/pug`,
     sass: `${source}/scss`,
     fonts: `${source}/assets/fonts`,
-    images: `${source}/assets/images`,
+    // images: `${source}/assets/images`,
   },
 
   dest: {
@@ -22,7 +22,7 @@ const config = {
     js: `${output}/js`,
     html: `${output}/layout`,
     css: `${output}/css`,
-    // fonts: `${output}/fonts`,
+    fonts: `${output}/assets/fonts`,
     // images: `${output}/images`,
   },
 

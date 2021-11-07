@@ -4,6 +4,7 @@ import server from "./config/server";
 import { scriptsBuild, scriptsWatch } from "./config/scripts";
 import { pugBuild, pugWatch } from "./config/pug";
 import { sassBuild, sassWatch } from "./config/styles";
+import { fontsBuild, fontsWatch } from './config/fonts';
 
 export const build = series(
   clean,
@@ -11,6 +12,7 @@ export const build = series(
     scriptsBuild,
     pugBuild,
     sassBuild,
+    fontsBuild,
   )
 );
 
@@ -21,5 +23,6 @@ export const dev = series(
     scriptsWatch,
     pugWatch,
     sassWatch,
+    fontsWatch,
   )
 );
