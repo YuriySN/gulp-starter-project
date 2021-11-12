@@ -1,39 +1,8 @@
 .test {
   display: flex;
   text-align: center;
-  &__my {
+
+  &__item {
     color: red;
   }
-}
-
-html {
-  position: absolute;
-  display: flex;
-  max-width: 10px;
-  color: green;
-  font-size: 16px;
-}
-
-body {
-  position: absolute;
-  display: block;
-  color: #888;
-  background-color: #eee;
-  transition: all 1s;
-}
-
-.div {
-  position: absolute;
-  display: block;
-  color: #888;
-  background-color: #eee;
-  transition: all 1s;
-}
-
-.block {
-  position: absolute;
-  display: block;
-  color: #888;
-  background-color: #eee;
-  transition: all 1s;
 }

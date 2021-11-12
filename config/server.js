@@ -10,6 +10,12 @@ const server = (done) => {
       `${config.dest.js}/*.js`,
       `${config.dest.html}/*.html`,
       `${config.dest.css}/*.css`,
+      {
+        match: `${config.dest.images}/**/*`,
+        fn() {
+          this.reload();
+        },
+      },
     ],
     open: false,
     notify: false,

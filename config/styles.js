@@ -14,22 +14,16 @@ import config from "./gulp.config";
 const sass = gulpSass(nodeSass);
 
 export const sassBuild = () =>
-  src(`${config.src.sass}/index.scss`)
+  src(`${config.src.sass}/index.scss`, { sourcemaps: config.build.dev })
     .pipe(plumber())
-    .pipe(gulpif(config.build.dev, sourcemaps.init()))
+    // .pipe(gulpif(config.build.dev, sourcemaps.init()))
     .pipe(sass())
     .pipe(gcmq())
     .pipe(postcss([autoprefixer()]))
     .pipe(gulpif(config.build.prod, cleanCSS({ level: 2 })))
-    .pipe(
-      gulpif(
-        config.build.prod,
-        rename({ basename: "main", suffix: ".min" }),
-        rename({ basename: "main" })
-      )
-    )
-    .pipe(gulpif(config.build.dev, sourcemaps.write()))
-    .pipe(dest(config.dest.css));
+    .pipe(rename({ basename: "main", suffix: ".min" }))
+    // .pipe(gulpif(config.build.dev, sourcemaps.write()))
+    .pipe(dest(config.dest.css, { sourcemaps: config.build.dev }));
 
 export const sassWatch = () => {
   watch(`${config.src.sass}/**/*.scss`, sassBuild);
